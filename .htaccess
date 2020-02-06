@@ -1,5 +1,4 @@
 Options +FollowSymLinks -MultiViews
 # Turn mod_rewrite on
 RewriteEngine On
-RewriteRule ^$ /build [L]
-
+RewriteRule ^build/(.*)$ /$1 [R=301,NC,L]
