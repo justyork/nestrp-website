@@ -28,7 +28,7 @@ export default class ShopType extends React.Component {
                     <ul className="shop__item-params">{params}</ul>
                     <div className="shop__item-bottom">
                         <div className="shop__item-price  gradient">{data.price} RUB</div>
-                        <a href="/" className="btn">Купить</a>
+                        <a href="/" className="btn btn--outline">Купить</a>
                     </div>
                 </div>
             </div>

@@ -363,6 +363,20 @@ template {
 // Var for using custom font
 $CustomFont: 'CustomFont', Helvetica, Arial, sans-serif;
 */
+::-moz-selection {
+  background: transparent;
+  /* Safari */
+}
+::selection {
+  background: transparent;
+  /* Safari */
+}
+
+::-moz-selection {
+  background: transparent;
+  /* Firefox */
+}
+
 .btn {
   background: #F04A2A;
   border-radius: 10px;
@@ -379,6 +393,8 @@ $CustomFont: 'CustomFont', Helvetica, Arial, sans-serif;
   font-style: normal;
   color: white;
   display: inline-block;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
 }
 
 .btn:hover {
@@ -394,13 +410,27 @@ $CustomFont: 'CustomFont', Helvetica, Arial, sans-serif;
   text-align: center;
 }
 
+.btn--outline {
+  background: none;
+  color: white;
+  border-radius: 10px;
+  border: 1px solid #E24728;
+}
+
+.btn--outline:hover {
+  background: #E24728;
+}
+
 .btn:disabled {
-  background: #666666;
+  background: none;
+  border: 1px solid #666666;
 }
 
 a {
   color: #ffffff;
   text-decoration: none;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
 }
 
 a:hover {
@@ -493,6 +523,10 @@ html, body {
   margin-left: 20px;
 }
 
+.logo a:hover {
+  color: white;
+}
+
 .menu {
   margin: 0;
   padding: 0;
@@ -526,6 +560,37 @@ html, body {
   list-style-position: outside;
 }
 
+.social .icon {
+  background: white;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  height: 30px;
+  display: block;
+}
+
+.social .icon:hover {
+  background: #E24728;
+}
+
+.social .discord {
+  -webkit-mask: url("../img/general/discord.svg") no-repeat center;
+  mask: url("../img/general/discord.svg") no-repeat center;
+  width: 20px;
+}
+
+.social .vk {
+  -webkit-mask: url("../img/general/vk.svg") no-repeat center;
+  mask: url("../img/general/vk.svg") no-repeat center;
+  width: 22px;
+}
+
+.social .youtube {
+  background-color: white;
+  -webkit-mask: url("../img/general/youtube.svg") no-repeat center;
+  mask: url("../img/general/youtube.svg") no-repeat center;
+  width: 18px;
+}
+
 .social li {
   display: inline-block;
 }
@@ -556,7 +621,11 @@ html, body {
   text-align: center;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #cccccc14;
+  background: -webkit-linear-gradient(#cccccc14 10%, transparent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 288px;
+  margin: 0 0 100px 0;
 }
 
 .content h1.title-medium {
@@ -649,40 +718,49 @@ html, body {
           transform: rotate(178deg);
 }
 
+.top-text {
+  position: absolute;
+  width: 100%;
+  top: 100px;
+}
+
+.top-text .text {
+  width: 40%;
+  float: right;
+  text-align: right;
+}
+
 .bottom-text {
-  bottom: 100px;
+  bottom: 0;
   position: absolute;
 }
 
 .play__bg-tr {
-  background-image: url("../img/content/play/1.svg");
+  background-image: url("../img/content/play/5.svg");
   background-repeat: no-repeat;
   background-size: cover;
-  width: 512px;
-  height: 595px;
+  width: 500px;
+  height: 437px;
   position: absolute;
 }
 
 .play__bg-tr.num-1 {
-  -webkit-transform: rotate(-84deg);
-          transform: rotate(-84deg);
-  top: -201px;
-  left: 167px;
+  top: 0px;
+  left: 110px;
 }
 
 .play__bg-tr.num-2 {
-  -webkit-transform: rotate(55deg);
-          transform: rotate(55deg);
-  left: 786px;
-  top: 263px;
+  -webkit-transform: rotate(15deg) scale(-1, 1);
+          transform: rotate(15deg) scale(-1, 1);
+  left: 685px;
+  top: 80px;
 }
 
 .play__bg-tr.num-3 {
-  background-image: url("../img/content/play/4.svg");
-  top: 435px;
-  left: 64px;
-  width: 575px;
-  height: 435px;
+  top: 548px;
+  left: 228px;
+  -webkit-transform: rotate(-204deg) scale(-1, 1);
+          transform: rotate(-204deg) scale(-1, 1);
 }
 
 .play__item {
@@ -691,18 +769,18 @@ html, body {
 }
 
 .play__item-1 {
-  left: 134px;
-  top: 72px;
+  left: 86px;
+  top: 89px;
 }
 
 .play__item-2 {
-  left: 324px;
-  top: 347px;
+  left: 275px;
+  top: 224px;
 }
 
 .play__item-3 {
-  top: 235px;
-  left: 0;
+  top: 290px;
+  left: 231px;
 }
 
 .play__item-data {
@@ -716,11 +794,13 @@ html, body {
   display: inline-block;
   font-size: 250px;
   height: 255px;
-  color: #cccccc14;
   font-weight: bold;
   vertical-align: top;
   line-height: 190px;
   width: 156px;
+  background: -webkit-linear-gradient(#cccccc14 10%, transparent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .play__item h3 {
@@ -896,6 +976,39 @@ html, body {
 
 .pay__confirm a:hover {
   color: #E24728;
+  text-decoration: none;
+}
+
+footer.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  line-height: 50px;
+  height: 50px;
+  z-index: 100;
+}
+
+footer.footer .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+footer.footer .menu {
+  margin-left: 100px;
+}
+
+footer.footer .menu li {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+footer.footer .menu li a {
+  text-decoration: underline;
+}
+
+footer.footer .menu li a:hover {
   text-decoration: none;
 }
 
@@ -1285,15 +1398,15 @@ html, body {
     -webkit-transform: scale(0.1);
             transform: scale(0.1);
   }
-  70% {
-    -webkit-transform: translate3d(-234px, -104px, 0) scale(0.8) rotate(155.9deg);
-            transform: translate3d(-234px, -104px, 0) scale(0.8) rotate(155.9deg);
+  50% {
+    -webkit-transform: translate3d(-192px, -140px, 0) scale(0.8) rotate(45deg);
+            transform: translate3d(-192px, -140px, 0) scale(0.8) rotate(45deg);
     opacity: 1;
   }
   to {
     opacity: 0;
-    -webkit-transform: translate3d(-234px, -104px, 0) scale(0.8) rotate(155.9deg);
-            transform: translate3d(-234px, -104px, 0) scale(0.8) rotate(155.9deg);
+    -webkit-transform: translate3d(-192px, -140px, 0) scale(0.8) rotate(45deg);
+            transform: translate3d(-192px, -140px, 0) scale(0.8) rotate(45deg);
   }
 }
 
@@ -1305,15 +1418,15 @@ html, body {
     -webkit-transform: scale(0.1);
             transform: scale(0.1);
   }
-  70% {
-    -webkit-transform: translate3d(-234px, -104px, 0) scale(0.8) rotate(155.9deg);
-            transform: translate3d(-234px, -104px, 0) scale(0.8) rotate(155.9deg);
+  50% {
+    -webkit-transform: translate3d(-192px, -140px, 0) scale(0.8) rotate(45deg);
+            transform: translate3d(-192px, -140px, 0) scale(0.8) rotate(45deg);
     opacity: 1;
   }
   to {
     opacity: 0;
-    -webkit-transform: translate3d(-234px, -104px, 0) scale(0.8) rotate(155.9deg);
-            transform: translate3d(-234px, -104px, 0) scale(0.8) rotate(155.9deg);
+    -webkit-transform: translate3d(-192px, -140px, 0) scale(0.8) rotate(45deg);
+            transform: translate3d(-192px, -140px, 0) scale(0.8) rotate(45deg);
   }
 }
 
@@ -1325,15 +1438,15 @@ html, body {
     -webkit-transform: scale(0.1);
             transform: scale(0.1);
   }
-  70% {
-    -webkit-transform: translate3d(472px, 248px, 0) scale(0.8) rotate(55deg);
-            transform: translate3d(472px, 248px, 0) scale(0.8) rotate(55deg);
+  50% {
+    -webkit-transform: translate3d(385px, -80px, 0) scale(0.8) rotate(30deg);
+            transform: translate3d(385px, -80px, 0) scale(0.8) rotate(30deg);
     opacity: 1;
   }
   to {
     opacity: 0;
-    -webkit-transform: translate3d(472px, 248px, 0) scale(0.8) rotate(55deg);
-            transform: translate3d(472px, 248px, 0) scale(0.8) rotate(55deg);
+    -webkit-transform: translate3d(385px, -80px, 0) scale(0.8) rotate(30deg);
+            transform: translate3d(385px, -80px, 0) scale(0.8) rotate(30deg);
   }
 }
 
@@ -1345,15 +1458,15 @@ html, body {
     -webkit-transform: scale(0.1);
             transform: scale(0.1);
   }
-  70% {
-    -webkit-transform: translate3d(472px, 248px, 0) scale(0.8) rotate(55deg);
-            transform: translate3d(472px, 248px, 0) scale(0.8) rotate(55deg);
+  50% {
+    -webkit-transform: translate3d(385px, -80px, 0) scale(0.8) rotate(30deg);
+            transform: translate3d(385px, -80px, 0) scale(0.8) rotate(30deg);
     opacity: 1;
   }
   to {
     opacity: 0;
-    -webkit-transform: translate3d(472px, 248px, 0) scale(0.8) rotate(55deg);
-            transform: translate3d(472px, 248px, 0) scale(0.8) rotate(55deg);
+    -webkit-transform: translate3d(385px, -80px, 0) scale(0.8) rotate(30deg);
+            transform: translate3d(385px, -80px, 0) scale(0.8) rotate(30deg);
   }
 }
 
@@ -1365,15 +1478,15 @@ html, body {
     -webkit-transform: scale(0.1);
             transform: scale(0.1);
   }
-  70% {
-    -webkit-transform: translate3d(-200px, 375px, 0) scale(0.75) rotate(87deg);
-            transform: translate3d(-200px, 375px, 0) scale(0.75) rotate(87deg);
+  50% {
+    -webkit-transform: translate3d(-68px, 428px, 0) scale(0.75) rotate(51deg);
+            transform: translate3d(-68px, 428px, 0) scale(0.75) rotate(51deg);
     opacity: 1;
   }
   to {
     opacity: 0;
-    -webkit-transform: translate3d(-200px, 375px, 0) scale(0.75) rotate(87deg);
-            transform: translate3d(-200px, 375px, 0) scale(0.75) rotate(87deg);
+    -webkit-transform: translate3d(-68px, 428px, 0) scale(0.75) rotate(51deg);
+            transform: translate3d(-68px, 428px, 0) scale(0.75) rotate(51deg);
   }
 }
 
@@ -1385,15 +1498,15 @@ html, body {
     -webkit-transform: scale(0.1);
             transform: scale(0.1);
   }
-  70% {
-    -webkit-transform: translate3d(-200px, 375px, 0) scale(0.75) rotate(87deg);
-            transform: translate3d(-200px, 375px, 0) scale(0.75) rotate(87deg);
+  50% {
+    -webkit-transform: translate3d(-68px, 428px, 0) scale(0.75) rotate(51deg);
+            transform: translate3d(-68px, 428px, 0) scale(0.75) rotate(51deg);
     opacity: 1;
   }
   to {
     opacity: 0;
-    -webkit-transform: translate3d(-200px, 375px, 0) scale(0.75) rotate(87deg);
-            transform: translate3d(-200px, 375px, 0) scale(0.75) rotate(87deg);
+    -webkit-transform: translate3d(-68px, 428px, 0) scale(0.75) rotate(51deg);
+            transform: translate3d(-68px, 428px, 0) scale(0.75) rotate(51deg);
   }
 }
 
@@ -1687,8 +1800,8 @@ html, body {
 @-webkit-keyframes fromPlayToHome-play-icon-1 {
   0% {
     opacity: 0;
-    -webkit-transform: translate3d(-234px, -104px, 0) scale(0.8) rotate(155.9deg);
-            transform: translate3d(-234px, -104px, 0) scale(0.8) rotate(155.9deg);
+    -webkit-transform: translate3d(-192px, -140px, 0) scale(0.8) rotate(45deg);
+            transform: translate3d(-192px, -140px, 0) scale(0.8) rotate(45deg);
   }
   30% {
     opacity: 1;
@@ -1706,8 +1819,8 @@ html, body {
 @keyframes fromPlayToHome-play-icon-1 {
   0% {
     opacity: 0;
-    -webkit-transform: translate3d(-234px, -104px, 0) scale(0.8) rotate(155.9deg);
-            transform: translate3d(-234px, -104px, 0) scale(0.8) rotate(155.9deg);
+    -webkit-transform: translate3d(-192px, -140px, 0) scale(0.8) rotate(45deg);
+            transform: translate3d(-192px, -140px, 0) scale(0.8) rotate(45deg);
   }
   30% {
     opacity: 1;
@@ -1725,8 +1838,8 @@ html, body {
 @-webkit-keyframes fromPlayToHome-play-icon-2 {
   0% {
     opacity: 0;
-    -webkit-transform: translate3d(472px, 248px, 0) scale(0.8) rotate(55deg);
-            transform: translate3d(472px, 248px, 0) scale(0.8) rotate(55deg);
+    -webkit-transform: translate3d(385px, -80px, 0) scale(0.8) rotate(30deg);
+            transform: translate3d(385px, -80px, 0) scale(0.8) rotate(30deg);
   }
   30% {
     opacity: 1;
@@ -1744,8 +1857,8 @@ html, body {
 @keyframes fromPlayToHome-play-icon-2 {
   0% {
     opacity: 0;
-    -webkit-transform: translate3d(472px, 248px, 0) scale(0.8) rotate(55deg);
-            transform: translate3d(472px, 248px, 0) scale(0.8) rotate(55deg);
+    -webkit-transform: translate3d(385px, -80px, 0) scale(0.8) rotate(30deg);
+            transform: translate3d(385px, -80px, 0) scale(0.8) rotate(30deg);
   }
   30% {
     opacity: 1;
@@ -1763,8 +1876,8 @@ html, body {
 @-webkit-keyframes fromPlayToHome-play-icon-3 {
   0% {
     opacity: 0;
-    -webkit-transform: translate3d(-200px, 375px, 0) scale(0.75) rotate(87deg);
-            transform: translate3d(-200px, 375px, 0) scale(0.75) rotate(87deg);
+    -webkit-transform: translate3d(-68px, 428px, 0) scale(0.75) rotate(51deg);
+            transform: translate3d(-68px, 428px, 0) scale(0.75) rotate(51deg);
   }
   30% {
     opacity: 1;
@@ -1782,8 +1895,8 @@ html, body {
 @keyframes fromPlayToHome-play-icon-3 {
   0% {
     opacity: 0;
-    -webkit-transform: translate3d(-200px, 375px, 0) scale(0.75) rotate(87deg);
-            transform: translate3d(-200px, 375px, 0) scale(0.75) rotate(87deg);
+    -webkit-transform: translate3d(-68px, 428px, 0) scale(0.75) rotate(51deg);
+            transform: translate3d(-68px, 428px, 0) scale(0.75) rotate(51deg);
   }
   30% {
     opacity: 1;

@@ -93,7 +93,7 @@ export default class App extends React.Component{
                                     <a href="/">Форум</a>
                                 </li>
                                 <li>
-                                    <NavLink to="/shop/vip">Магазин</NavLink>
+                                    <NavLink to="/shop">Магазин</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/pay">Пополнение счета</NavLink>
@@ -102,19 +102,13 @@ export default class App extends React.Component{
 
                             <ul className="social">
                                 <li>
-                                    <a href="/">
-                                        <img src="/static/img/general/discord.svg" alt="" />
-                                    </a>
+                                    <a href="#" className="icon discord"></a>
                                 </li>
                                 <li>
-                                    <a href="/">
-                                        <img src="/static/img/general/vk.svg" alt="" />
-                                    </a>
+                                    <a href="#" className="icon vk"></a>
                                 </li>
                                 <li>
-                                    <a href="/">
-                                        <img src="/static/img/general/youtube.svg" alt="" />
-                                    </a>
+                                    <a href="#" className="icon youtube"></a>
                                 </li>
                             </ul>
                         </header>
@@ -132,7 +126,7 @@ export default class App extends React.Component{
                                 </div>
                             </div>
                         </Route>
-                        <Route path="/shop/:id">
+                        <Route path="/shop">
                             <Shop pageType={pageType} updateType={this.updateType.bind(this)}/>
                         </Route>
                         <Route path="/about">
@@ -151,14 +145,54 @@ export default class App extends React.Component{
                             </div>
                         </Route>
                         <Route path="/">
+                            <div className="top-text">
+                                <div className="container">
+                                    <div className="text">Игровой проект GTA 5, который позволяет опробовать на себе
+                                        любую роль, которая может прийти человеку в голову. Начиная от обычного рабочего
+                                        и до самого президента.
+                                    </div>
+
+                                </div>
+                            </div>
                             <div className={"container content-data "}>
                                 <div className={"container--small"} >
                                     <Play  pageType={pageType} updateType={this.updateType.bind(this)}/>
                                     <Home  pageType={pageType} updateType={this.updateType.bind(this)}/>
                                 </div>
                             </div>
+
+                            <div className="container bottom-text">
+                                <img src="/static/img/content/ping.png" alt="" />
+                            </div>
+
                         </Route>
                     </Switch>
+
+                    <footer className="footer">
+                        <div className="container">
+                            <div className="copyright">
+                                &copy; 2019-2020 NEST Role Play
+                            </div>
+                            <div className="menu">
+                                <li>
+                                    <NavLink to="/about">О нас</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/play">Играть</NavLink>
+                                </li>
+                                <li>
+                                    <a href="/">Форум</a>
+                                </li>
+                                <li>
+                                    <NavLink to="/shop">Магазин</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/pay">Пополнение счета</NavLink>
+                                </li>
+                            </div>
+                        </div>
+                    </footer>
+
                 </Router>
             </section>
         );

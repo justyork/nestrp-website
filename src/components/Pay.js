@@ -30,10 +30,10 @@ export default class Pay extends React.Component{
                             <input type="text" placeholder="Сумма"/>
                         </div>
                         <div className="pay__note">
-                            Курс <a href="/">Nestcoin</a> 1 Руб. = $100 (Игровой валюты)
+                            Курс <a href="/">Nesters</a> 1 Руб. = $100 (Игровой валюты)
                         </div>
 
-                        <button className="btn" disabled={!this.state.confirmRules}>Пополнить</button>
+                        <button className="btn btn--outline" disabled={!this.state.confirmRules}>Пополнить</button>
 
                         <div className="field-row pay__confirm">
                             <label>

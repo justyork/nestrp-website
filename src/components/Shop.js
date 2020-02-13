@@ -20,22 +20,27 @@ class Shop extends React.Component{
         // console.log(this.data(), id)
         return (
             <React.Fragment>
-                <div className="shop__submenu-wrapper">
-                    <div className="shop__submenu">
-                        <ul className="menu">
-                            <li><NavLink to={`/shop/vip`} >Набор VIP</NavLink></li>
-                            <li><NavLink to={`/shop/start`}>Стартовые наборы</NavLink></li>
-                        </ul>
-                    </div>
-                </div>
                 <div className={"container content-data content shop-content"} id="scroll-container">
                     <div className={"container--small"} >
                         <h1 className="title-medium">Магазин</h1>
                         <div className="shop">
 
-                            <Route path="/shop/:id">
-                                <ShopType data={this.data()[id]} />
-                            </Route>
+                            <div className='shop__mouse'>
+                                <img src="/static/img/content/mouse.svg" alt=""/>
+                            </div>
+                            <a name="vip" id="vip"></a>
+                            <ul className="menu" >
+                                <li><a href='#vip' className='active'>Набор VIP</a></li>
+                                <li><a href='#start' className=''>Стартовые наборы</a></li>
+                            </ul>
+                            <ShopType data={this.data()['vip']} />
+
+                            <a name="start"  id="start"></a>
+                            <ul className="menu">
+                                <li><a href='#vip' className=''>Набор VIP</a></li>
+                                <li><a href='#start' className='active'>Стартовые наборы</a></li>
+                            </ul>
+                            <ShopType data={this.data()['start']} />
                         </div>
                     </div>
                 </div>

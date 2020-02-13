@@ -16,6 +16,8 @@ code {
   position: absolute;
   left: calc(50% - 229px);
   width: 459px;
+  margin-left: 53px;
+  top: calc(50vh - 355px);
 }
 .play-ab .play-icon-middle{
   position: absolute;
@@ -41,7 +43,7 @@ code {
 .page{
   overflow-x: hidden;
 }
-.playPage, .fromHomeToPlay{
+.playPage, .fromHomeToPlay, .fromPlayToHome {
   overflow: hidden;
 }
 .page__wrapper{
@@ -134,6 +136,15 @@ body::-webkit-scrollbar-thumb {
   position: fixed;
   width: 100%;
 }
-.shop-content{
-  padding-top: 80px;
+
+.shop .menu{
+  text-align: center;
+  margin-top: 80px;
 }
+.shop__item{
+  height: auto;
+}
+.shop__mouse{
+  text-align: center;
+}
+
