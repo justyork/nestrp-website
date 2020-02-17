@@ -147,4 +147,10 @@ body::-webkit-scrollbar-thumb {
 .shop__mouse{
   text-align: center;
 }
-
+.shop__count{
+  margin-left: 40px;
+  margin-top: 10px;
+}
+.logo img{
+  height: 30px;
+}

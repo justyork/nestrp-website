@@ -64,6 +64,7 @@ class Shop extends React.Component{
                     ],
                     price: 350,
                     color: 'white',
+                    count: 15,
                 },
                 {
                     image: 'king.png',
@@ -80,7 +81,8 @@ class Shop extends React.Component{
                         'Кейс King penguin x1',
                     ],
                     price: 600,
-                    color: 'gold'
+                    color: 'gold',
+                    count: 5,
                 },
                 {
                     image: 'emperor.png',
